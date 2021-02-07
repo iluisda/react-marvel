@@ -1,0 +1,16 @@
+@import '../../utils/theme.scss';
+
+.navbar {
+    background-color: $brown-color !important;
+  
+    img {
+        max-width: 200px !important;
+    }
+    @media (min-width:320px) and (max-width: 641px) {
+        .navbar-brand {
+            img {
+                max-width: 200px !important;
+            }
+        }
+    }
+}

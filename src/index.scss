@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'RobotoCondensed';
+    src: local('RobotoCondensed'),
+      local('RobotoCondensed'),
+      local('RobotoCondensed'),
+      url(./fonts/RobotoCondensed-Regular.ttf) format('truetype');
+  }
+  
+  body {
+    font-family: 'RobotoCondensed' !important;
+    /* 
+    ##Device = Desktops
+    ##Screen = 1281px to higher resolution desktops
+  */
+}  

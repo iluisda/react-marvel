@@ -1,0 +1,7 @@
+.navbar {
+  background-color: #2d2727 !important; }
+  .navbar img {
+    max-width: 200px !important; }
+  @media (min-width: 320px) and (max-width: 641px) {
+    .navbar .navbar-brand img {
+      max-width: 200px !important; } }
