@@ -1,0 +1,8 @@
+@import '../../utils/theme.scss';
+
+.cards-wrapper {
+    background-color: $bg-color;
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}

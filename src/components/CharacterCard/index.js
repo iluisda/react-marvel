@@ -1,5 +1,5 @@
-import React from 'react'
-import './style.css'
+import React, {Fragment} from 'react'
+import './style.scss'
 
 export default function CharacterCard(props) {
 
@@ -26,12 +26,16 @@ export default function CharacterCard(props) {
 				</div>
 			}
 			<div className="title-description">
-					{name && <h3>{name}</h3>}
-					<p>{description}</p>
-					<button>VIEW MORE</button>
+					{name && <h1>{name}</h1>}
+					{description && 
+						<Fragment>
+							<p>{description}</p>
+							<button>VIEW MORE</button>
+						</Fragment>
+					}
 			</div>
-			<div className="comics">
-				<p>Related comics</p>
+			{comicsArr.length > 0 && <div className="comics">
+				<h4>Related comics</h4>
 				<div className="comics-wrapper">
 					{comicsArr.map((comic)=>{
 						return (
@@ -39,7 +43,7 @@ export default function CharacterCard(props) {
 						)
 					})}
 				</div>
-			</div>
+			</div>}
 		</div>
 	)
 }
