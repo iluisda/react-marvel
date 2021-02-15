@@ -4,7 +4,7 @@ import getCharacters from '../../API/getCharacters'
 import './style.scss'
 
 
-export default function Main() {
+export default function Main(props) {
 
 	const [characters, setCharacters] = useState(null)
 
@@ -16,16 +16,26 @@ export default function Main() {
 
 	useEffect(()=>{
 		console.log('characters', characters)
-	}, [characters])
+  }, [characters])
+  
+  useEffect (()=>{
+    console.log(props.inputValue)
+  }, [props.inputValue])
+
+  const {inputValue} = props
 
 	return(
 		<Fragment>
 			<div className="cards-wrapper">
 				{characters &&
 					characters.map((char, i)=>{
-						return (
-							<CharacterCard character={char} key={i.toString()}/>
-						)
+            return(
+              !!char.name.toLowerCase().includes(inputValue.toLowerCase()) &&
+                <CharacterCard 
+                  character={char} 
+                  key={i.toString()}
+                />
+            )
 					})
 				}
 			</div>

@@ -10,14 +10,6 @@ export default function CharacterCard(props) {
 		comics
 	} = props.character
 
-	let comicsArr = []
-
-	for (let i = 0; i <= 3; i++) {
-		if (comics.items && comics.items[i]) {
-			comicsArr.push(comics.items[i].name)
-		}
-	}
-
 	return(
 		<div className="info-wrapper">
 			{thumbnail && 
@@ -34,12 +26,12 @@ export default function CharacterCard(props) {
 						</Fragment>
 					}
 			</div>
-			{comicsArr.length > 0 && <div className="comics">
+			{comics.items.length > 0 && <div className="comics">
 				<h4>Related comics</h4>
 				<div className="comics-wrapper">
-					{comicsArr.map((comic)=>{
+					{comics.items.slice(0,4).map((comic)=>{
 						return (
-							<p>{comic}</p>
+							<p>{comic.name}</p>
 						)
 					})}
 				</div>
