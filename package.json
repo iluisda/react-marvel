@@ -26,7 +26,8 @@
     "eject": "react-scripts eject",
     "startall": "npm-run-all -p watch-css start",
     "predeploy": "npm run build && cp build/index.html build/404.html && cp CNAME build/",
-    "deploy": "surge build"
+    "deploy": "surge build",
+    "lint": "eslint ./"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +48,12 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "node-sass": "^4.14.1",
     "node-sass-chokidar": "^1.5.0",
     "npm-run-all": "^4.1.5",
