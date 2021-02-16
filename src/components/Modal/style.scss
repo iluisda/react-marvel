@@ -1,0 +1,26 @@
+@import '../../utils/theme.scss';
+
+.comic-image {
+  object-fit: cover;
+  img{
+    width: 200px;
+  }
+}
+
+.comic-info {
+  .comic-date {
+    text-align: center;
+    font-weight: 700;
+  }
+  .comic-description{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+  h4 {
+    margin-top: 50px;
+    font-size: 130%;
+  }
+}

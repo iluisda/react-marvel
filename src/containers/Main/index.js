@@ -1,44 +1,46 @@
-import React, {Fragment, useState, useEffect} from 'react'
+import React, {
+  useState, useEffect,
+} from 'react'
 import CharacterCard from '../../components/CharacterCard'
 import getCharacters from '../../API/getCharacters'
+import MydModalWithGrid from '../../components/Modal'
 import './style.scss'
 
-
 export default function Main(props) {
+  const [characters, setCharacters] = useState(null)
+  const [comic, setComic] = useState(null)
 
-	const [characters, setCharacters] = useState(null)
+  useEffect(() => {
+    getCharacters().then((res) => {
+      if (res.data.data.results) setCharacters(res.data.data.results)
+    })
+  }, [])
 
-	useEffect(()=>{
-		getCharacters().then(res => {
-			res.data.data.results && setCharacters(res.data.data.results)
-		})
-	}, [])
+  const {
+    inputValue,
+  } = props
 
-	useEffect(()=>{
-		console.log('characters', characters)
-  }, [characters])
-  
-  useEffect (()=>{
-    console.log(props.inputValue)
-  }, [props.inputValue])
-
-  const {inputValue} = props
-
-	return(
-		<Fragment>
-			<div className="cards-wrapper">
-				{characters &&
-					characters.map((char, i)=>{
-            return(
-              !!char.name.toLowerCase().includes(inputValue.toLowerCase()) &&
-                <CharacterCard 
-                  character={char} 
-                  key={i.toString()}
-                />
+  return (
+    <>
+      <div className="cards-wrapper">
+        {characters && characters.map((char, i) => (
+          !!char.name.toLowerCase().includes(inputValue.toLowerCase())
+            && (
+            <CharacterCard
+              character={char}
+              key={i.toString()}
+              comicClick={(selectedComic) => {
+                setComic(selectedComic)
+              }}
+            />
             )
-					})
-				}
-			</div>
-		</Fragment>
-	)
+        ))}
+      </div>
+      <MydModalWithGrid
+        show={comic}
+        onHide={() => setComic(null)}
+        comic={comic}
+      />
+    </>
+  )
 }
